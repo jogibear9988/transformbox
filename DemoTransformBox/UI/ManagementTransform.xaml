@@ -1,0 +1,138 @@
+﻿<UserControl x:Class="DemoTransformBox.UI.ManagementTransform"
+              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:DemoTransformBox.UI">
+
+    <Grid x:Name="Root">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Style="{StaticResource ThinBorderStyle}" Margin="0 0 3 0" Padding="5" Grid.Column="0">
+            <local:PointSelector SelectedPoint="PointSelectorSelectedPoint"  />
+        </Border>
+
+        <Border Style="{StaticResource ThinBorderStyle}" Margin="0 0 3 0" Padding="5" Grid.Column="2">
+            <StackPanel Orientation="Horizontal">
+
+                <Button x:Name="translateLeft" Style="{StaticResource CommandButtonStyle}" PreviewMouseLeftButtonDown="TransformOperationPreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="TransformOperationPreviewMouseLeftButtonUp">
+                    <Button.Content>
+                        <Image Source="/DemoTransformBox;component/Images/interface/translate-left.png"/>
+                    </Button.Content>
+                </Button>
+
+                <Button x:Name="translateTop" Style="{StaticResource CommandButtonStyle}" PreviewMouseLeftButtonDown="TransformOperationPreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="TransformOperationPreviewMouseLeftButtonUp">
+                    <Button.Content>
+                        <Image Source="/DemoTransformBox;component/Images/interface/translate-top.png"/>
+                    </Button.Content>
+                </Button>
+
+                <Button x:Name="translateBootom" Style="{StaticResource CommandButtonStyle}" PreviewMouseLeftButtonDown="TransformOperationPreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="TransformOperationPreviewMouseLeftButtonUp">
+                    <Button.Content>
+                        <Image Source="/DemoTransformBox;component/Images/interface/translate-bottom.png"/>
+                    </Button.Content>
+                </Button>
+
+                <Button x:Name="translateRight" Style="{StaticResource CommandButtonStyle}" PreviewMouseLeftButtonDown="TransformOperationPreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="TransformOperationPreviewMouseLeftButtonUp">
+                    <Button.Content>
+                        <Image Source="/DemoTransformBox;component/Images/interface/translate-right.png"/>
+                    </Button.Content>
+                </Button>
+
+            </StackPanel>
+        </Border>
+
+        <Border Style="{StaticResource ThinBorderStyle}" Margin="0 0 3 0" Padding="5" Grid.Column="3">
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="enlargeHeight" Style="{StaticResource CommandButtonStyle}" PreviewMouseLeftButtonDown="TransformOperationPreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="TransformOperationPreviewMouseLeftButtonUp">
+                    <Button.Content>
+                        <Image Source="/DemoTransformBox;component/Images/interface/enlarge-height.png"/>
+                    </Button.Content>
+                </Button>
+
+                <Button x:Name="reduceHeight" Style="{StaticResource CommandButtonStyle}" PreviewMouseLeftButtonDown="TransformOperationPreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="TransformOperationPreviewMouseLeftButtonUp">
+                    <Button.Content>
+                        <Image Source="/DemoTransformBox;component/Images/interface/reduce-height.png"/>
+                    </Button.Content>
+                </Button>
+
+                <Button x:Name="enlargeWidth" Style="{StaticResource CommandButtonStyle}" PreviewMouseLeftButtonDown="TransformOperationPreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="TransformOperationPreviewMouseLeftButtonUp">
+                    <Button.Content>
+                        <Image Source="/DemoTransformBox;component/Images/interface/enlarge-width.png"/>
+                    </Button.Content>
+                </Button>
+
+                <Button x:Name="reduceWidth" Style="{StaticResource CommandButtonStyle}" PreviewMouseLeftButtonDown="TransformOperationPreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="TransformOperationPreviewMouseLeftButtonUp">
+                    <Button.Content>
+                        <Image Source="/DemoTransformBox;component/Images/interface/reduce-width.png"/>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+        </Border>
+
+        <Border Style="{StaticResource ThinBorderStyle}" Margin="0 0 3 0" Padding="5" Grid.Column="4">
+            <StackPanel Orientation="Horizontal" Margin="0 3 0 0">
+                <Button x:Name="rotateCCW" Style="{StaticResource CommandButtonStyle}" PreviewMouseLeftButtonDown="TransformOperationPreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="TransformOperationPreviewMouseLeftButtonUp">
+                    <Button.Content>
+                        <Image Source="/DemoTransformBox;component/Images/interface/rotate-ccw.png"/>
+                    </Button.Content>
+                </Button>
+
+                <Button x:Name="rotateCW" Style="{StaticResource CommandButtonStyle}" PreviewMouseLeftButtonDown="TransformOperationPreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="TransformOperationPreviewMouseLeftButtonUp">
+                    <Button.Content>
+                        <Image Source="/DemoTransformBox;component/Images/interface/rotate-cw.png"/>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+        </Border>
+
+        <Border Style="{StaticResource ThinBorderStyle}" Margin="0 0 3 0" Padding="5" Grid.Column="5">
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="skew1" Style="{StaticResource CommandButtonStyle}" PreviewMouseLeftButtonDown="TransformOperationPreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="TransformOperationPreviewMouseLeftButtonUp">
+                    <Button.Content>
+                        <Image Source="/DemoTransformBox;component/Images/interface/skew1.png"/>
+                    </Button.Content>
+                </Button>
+                <Button x:Name="skew2" Style="{StaticResource CommandButtonStyle}" PreviewMouseLeftButtonDown="TransformOperationPreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="TransformOperationPreviewMouseLeftButtonUp">
+                    <Button.Content>
+                        <Image Source="/DemoTransformBox;component/Images/interface/skew2.png"/>
+                    </Button.Content>
+                </Button>
+                <Button x:Name="skew3" Style="{StaticResource CommandButtonStyle}" PreviewMouseLeftButtonDown="TransformOperationPreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="TransformOperationPreviewMouseLeftButtonUp">
+                    <Button.Content>
+                        <Image Source="/DemoTransformBox;component/Images/interface/skew3.png"/>
+                    </Button.Content>
+                </Button>
+                <Button x:Name="skew4" Style="{StaticResource CommandButtonStyle}" PreviewMouseLeftButtonDown="TransformOperationPreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="TransformOperationPreviewMouseLeftButtonUp">
+                    <Button.Content>
+                        <Image Source="/DemoTransformBox;component/Images/interface/skew4.png"/>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+        </Border>
+
+        <Border Style="{StaticResource ThinBorderStyle}" Margin="0 0 3 0" Padding="5" Grid.Column="6">
+            <StackPanel Orientation="Horizontal">
+                <Button Name="ok" Style="{StaticResource CommandButtonStyle}" PreviewMouseLeftButtonDown="TransformOperationPreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="TransformOperationPreviewMouseLeftButtonUp">
+                    <Button.Content>
+                        <Image Source="/DemoTransformBox;component/Images/interface/ok.png"/>
+                    </Button.Content>
+                </Button>
+
+                <Button Name="cansel" Style="{StaticResource CommandButtonStyle}" PreviewMouseLeftButtonDown="TransformOperationPreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="TransformOperationPreviewMouseLeftButtonUp">
+                    <Button.Content>
+                        <Image Source="/DemoTransformBox;component/Images/interface/cancel.png"/>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+        </Border>
+
+    </Grid>
+
+</UserControl>
