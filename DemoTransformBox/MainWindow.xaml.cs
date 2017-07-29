@@ -29,7 +29,7 @@ namespace DemoTransformBox
                     FrameworkElement element = sender as FrameworkElement;
                     {
                         EnabledManagementTransform(true);
-                        transformBox.SetTransformElement(element);
+                        transformBox.SetTransformElement(element, useOriginalRect.IsChecked == true);
                     }
                 }
             }

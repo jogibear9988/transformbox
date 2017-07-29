@@ -54,6 +54,7 @@
                     <transformbox:TransformBox x:Name="transformBox" Style="{StaticResource TransformBoxStyle}" Width="{Binding ActualWidth, ElementName=rootPanel}" Height="{Binding ActualHeight, ElementName=rootPanel}" />
                 </Canvas>
             </Border>
+            <CheckBox Grid.Row="1" x:Name="useOriginalRect" Margin="10,0,0,10" HorizontalAlignment="Left" VerticalAlignment="Bottom">Use original rect</CheckBox>
         </Grid>
     </Border>
 

@@ -418,7 +418,7 @@ namespace TransformBox
 
         #region Transform Element
 
-        public void SetTransformElement(FrameworkElement element)
+        public void SetTransformElement(FrameworkElement element, bool useOriginalRect = false)
         {
             if (IsBusy == true)
             {
@@ -448,7 +448,7 @@ namespace TransformBox
 
                 MatrixTransform originalTransform = element.RenderTransform as MatrixTransform;
                 Rect originalRect = new Rect(0, 0, element.Width, element.Height);
-                originalPoint = CalculationTransformPointPosition(originalTransform, originalRect);
+                originalPoint = CalculationTransformPointPosition(originalTransform, originalRect, useOriginalRect);
 
                 ApplyTransform(Matrix.Identity);
 
@@ -505,21 +505,36 @@ namespace TransformBox
             IsBusy = false;
         }
 
-        private Point[] CalculationTransformPointPosition(MatrixTransform transform, Rect original)
+        private Point[] CalculationTransformPointPosition(MatrixTransform transform, Rect original, bool useOriginalRect)
         {
-            Rect rect = transform.TransformBounds(original);
-
-            Point a = new Point(rect.X, rect.Y);
-            Point b = new Point(rect.X + rect.Width / 2, rect.Y);
-            Point c = new Point(rect.X + rect.Width, rect.Y);
-            Point d = new Point(rect.X + rect.Width, rect.Y + rect.Height / 2);
-            Point e = new Point(rect.X + rect.Width, rect.Y + rect.Height);
-            Point f = new Point(rect.X + rect.Width / 2, rect.Y + rect.Height);
-            Point g = new Point(rect.X, rect.Y + rect.Height);
-            Point h = new Point(rect.X, rect.Y + rect.Height / 2);
-            Point center = new Point(rect.X + rect.Width / 2, rect.Y + rect.Height / 2);
-
-            return new Point[] { a, b, c, d, e, f, g, h, center, center };
+            if (useOriginalRect)
+            {
+                Rect rect = original;
+                Point a = transform.Transform(new Point(rect.X, rect.Y));
+                Point b = transform.Transform(new Point(rect.X + rect.Width / 2, rect.Y));
+                Point c = transform.Transform(new Point(rect.X + rect.Width, rect.Y));
+                Point d = transform.Transform(new Point(rect.X + rect.Width, rect.Y + rect.Height / 2));
+                Point e = transform.Transform(new Point(rect.X + rect.Width, rect.Y + rect.Height));
+                Point f = transform.Transform(new Point(rect.X + rect.Width / 2, rect.Y + rect.Height));
+                Point g = transform.Transform(new Point(rect.X, rect.Y + rect.Height));
+                Point h = transform.Transform(new Point(rect.X, rect.Y + rect.Height / 2));
+                Point center = transform.Transform(new Point(rect.X + rect.Width / 2, rect.Y + rect.Height / 2));
+                return new Point[] { a, b, c, d, e, f, g, h, center, center };
+            }
+            else
+            {
+                Rect rect = transform.TransformBounds(original);
+                Point a = new Point(rect.X, rect.Y);
+                Point b = new Point(rect.X + rect.Width / 2, rect.Y);
+                Point c = new Point(rect.X + rect.Width, rect.Y);
+                Point d = new Point(rect.X + rect.Width, rect.Y + rect.Height / 2);
+                Point e = new Point(rect.X + rect.Width, rect.Y + rect.Height);
+                Point f = new Point(rect.X + rect.Width / 2, rect.Y + rect.Height);
+                Point g = new Point(rect.X, rect.Y + rect.Height);
+                Point h = new Point(rect.X, rect.Y + rect.Height / 2);
+                Point center = new Point(rect.X + rect.Width / 2, rect.Y + rect.Height / 2);
+                return new Point[] { a, b, c, d, e, f, g, h, center, center };
+            }
         }
 
         #endregion
